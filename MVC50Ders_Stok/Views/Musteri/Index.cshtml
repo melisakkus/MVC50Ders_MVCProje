@@ -1,0 +1,29 @@
+﻿@using MVC50Ders_Stok.Models.Entity
+@model List<Tbl_Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Musteri Id</th>
+        <th>Musteri Ad</th>
+        <th>Musteri Soyad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var musteri in Model)
+        {
+            <tr>
+                <th>@musteri.MusteriId</th>
+                <td>@musteri.MusteriAd</td>
+                <td>@musteri.MusteriSoyad</td>
+                <td><a href="/Musteri/Sil/@musteri.MusteriId" class="btn btn-danger">SİL</a></td>
+                <td> <a href="/Musteri/Guncelle/@musteri.MusteriId" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteri/YeniMusteri" class="btn btn-primary">YENİ MÜŞTERİ EKLE</a>
