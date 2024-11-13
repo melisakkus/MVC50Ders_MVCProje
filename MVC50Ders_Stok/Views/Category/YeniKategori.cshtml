@@ -1,13 +1,18 @@
-﻿
+﻿@model MVC50Ders_Stok.Models.Entity.Tbl_Kategoriler
 @{
     ViewBag.Title = "YeniKategori";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 <form class="form-group" method="post">
-    <div>
+    @*<div>
         <label>Kategori Ad</label>
         <input type="text" class="form-control" name="KategoriAd" />
+    </div>*@
+    <div>
+        <label>Kategori Ad</label>
+        @Html.TextBoxFor(m=>m.KategoriAd, new {@class="form-control" })
+        @Html.ValidationMessageFor(m=>m.KategoriAd,"",new {@style="color:red"})
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-info">Kategori Ekle</button>

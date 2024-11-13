@@ -27,9 +27,36 @@ namespace MVC50Ders_Stok.Controllers
         [HttpPost]
         public ActionResult YeniMusteri(Tbl_Musteriler tblMusteri)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("YeniMusteri");
+            }
             db.Tbl_Musteriler.Add(tblMusteri);  
             db.SaveChanges();   
-            return View();  
+            return RedirectToAction("Index");  
+        }
+
+        public ActionResult MusteriSil(int id)
+        {
+            var musteri = db.Tbl_Musteriler.Find(id);
+            db.Tbl_Musteriler.Remove(musteri);
+            db.SaveChanges();
+            return RedirectToAction("Index");   
+        }
+
+        public ActionResult MusteriGetir(int id)
+        {
+            var musteri = db.Tbl_Musteriler.Find(id);
+            return View("MusteriGetir", musteri);
+        }
+
+        public ActionResult MusteriGuncelle(Tbl_Musteriler model)
+        {
+            var musteri = db.Tbl_Musteriler.Find(model.MusteriId);
+            musteri.MusteriAd = model.MusteriAd;
+            musteri.MusteriSoyad = model.MusteriSoyad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

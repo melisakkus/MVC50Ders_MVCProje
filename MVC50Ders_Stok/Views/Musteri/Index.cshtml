@@ -12,6 +12,7 @@
         <th>Musteri Soyad</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Alert</th>
     </tr>
     <tbody>
         @foreach (var musteri in Model)
@@ -20,8 +21,9 @@
                 <th>@musteri.MusteriId</th>
                 <td>@musteri.MusteriAd</td>
                 <td>@musteri.MusteriSoyad</td>
-                <td><a href="/Musteri/Sil/@musteri.MusteriId" class="btn btn-danger">SİL</a></td>
-                <td> <a href="/Musteri/Guncelle/@musteri.MusteriId" class="btn btn-success">GÜNCELLE</a></td>
+                <td><a href="/Musteri/MusteriSil/@musteri.MusteriId" class="btn btn-danger">SİL</a></td>
+                <td> <a href="/Musteri/MusteriGetir/@musteri.MusteriId" class="btn btn-success">GÜNCELLE</a></td>
+                <td>@Html.ActionLink("Sil Butonu", "MusteriSil", new {  id = musteri.MusteriId}, new {@class="btn btn-warning",onclick ="return confirm('Gerçekten Silmek İstiyor Musunuz?')"})</td>
             </tr>
         }
     </tbody>

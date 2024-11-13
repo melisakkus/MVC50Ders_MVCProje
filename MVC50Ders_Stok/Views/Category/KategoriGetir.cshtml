@@ -1,0 +1,22 @@
+﻿@model MVC50Ders_Stok.Models.Entity.Tbl_Kategoriler
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("KategoriGuncelle", "Category", FormMethod.Post))
+//bir action olduğunda neresi çalışacak? - çalışacak olan nerede? - ne zaman çalışacak?
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.KategoriId)
+        @Html.TextBoxFor(m => m.KategoriId, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.KategoriAd)
+        @Html.TextBoxFor(m => m.KategoriAd, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Kategori Güncelle</button>
+    </div>
+}

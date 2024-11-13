@@ -1,5 +1,7 @@
 ﻿@using MVC50Ders_Stok.Models.Entity
-@model List<Tbl_Kategoriler>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Tbl_Kategoriler>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -18,12 +20,15 @@
                 <tr>
                     <th>@ktgr.KategoriId</th>
                     <td>@ktgr.KategoriAd</td>
-                    <td> <a href="/Category/Sil/@ktgr.KategoriId"class=" btn btn-danger">SİL</a></td>
-                    <td> <a href="/Category/Guncelle/@ktgr.KategoriId"class="btn btn-success">GÜNCELLE</a></td>
+                    <td> <a href="/Category/KategoriSil/@ktgr.KategoriId"class=" btn btn-danger">SİL</a></td>
+                    <td> <a href="/Category/KategoriGetir/@ktgr.KategoriId"class="btn btn-success">GÜNCELLE</a></td>
                 </tr>
             }
     </tbody>
 </table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index",new {sayfa}))
+
 
 <a href="/Category/YeniKategori" class="btn btn-primary">YENİ KATEGORİ EKLE</a>
 

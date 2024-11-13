@@ -11,7 +11,8 @@ namespace MVC50Ders_Stok.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tbl_Musteriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,13 @@ namespace MVC50Ders_Stok.Models.Entity
         }
     
         public int MusteriId { get; set; }
+
+        [Required(ErrorMessage ="Bu alaný boþ býrakamazsýnýz!")]
+        [StringLength(50, ErrorMessage = "Maximum karakter sayýsýna ulaþtýnýz!")]
         public string MusteriAd { get; set; }
+
+        [Required(ErrorMessage = "Bu alaný boþ býrakamazsýnýz!")]
+        [StringLength(50,ErrorMessage = "Maximum karakter sayýsýna ulaþtýnýz!")]
         public string MusteriSoyad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,4 +1,4 @@
-﻿
+﻿@model MVC50Ders_Stok.Models.Entity.Tbl_Urunler
 @{
     ViewBag.Title = "YeniUrun";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -7,17 +7,18 @@
 <form method="post" class="form-group">
     <div>
         <label>Ürün Ad</label>
-        <input type="text" class="form-control" name="UrunAd" />
+        <input type="text" class="form-control" name="UrunAd" required maxlength="50" />
+        @*@Html.ValidationMessageFor("Lütfen boş bırakmayınız.","",)*@
     </div>
 
     <div>
         <label>Ürün Marka</label>
-        <input type="text" class="form-control" name="UrunMarka" />
+        <input type="text" class="form-control" name="UrunMarka" placeholder="Markayı yazınız..." required />
     </div>
 
     <div>
         <label>Kategori Seçiniz</label>
-        <input type="text" class="form-control" name="UrunKategori" />
+        @Html.DropDownListFor(m=>m.Tbl_Kategoriler.KategoriId,(List<SelectListItem>)ViewBag.dgr,new {@class="form-control" })
     </div>
 
     <div>
