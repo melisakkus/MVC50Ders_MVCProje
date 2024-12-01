@@ -22,7 +22,7 @@ namespace MVC50Ders_MVCProje.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "İletişim bilgileri sayfasındasınız.";
+            ViewBag.Message = "İletişim bilgileri sayfası.";
 
             return View();
         }
