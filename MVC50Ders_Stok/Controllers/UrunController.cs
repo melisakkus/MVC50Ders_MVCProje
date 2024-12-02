@@ -69,7 +69,6 @@ namespace MVC50Ders_Stok.Controllers
             urun.UrunMarka = model.UrunMarka;
             urun.UrunFiyat = model.UrunFiyat;
             urun.UrunStok = model.UrunStok;
-
             //urun.UrunKategori = model.UrunKategori;
             var kategori = db.Tbl_Kategoriler.Where(m => m.KategoriId == model.Tbl_Kategoriler.KategoriId).FirstOrDefault();
             urun.UrunKategori = kategori.KategoriId;

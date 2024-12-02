@@ -34,7 +34,7 @@ namespace MVC50Ders_Stok.Controllers
             }
             db.Tbl_Kategoriler.Add(tblKategori);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult KategoriSil(int id)

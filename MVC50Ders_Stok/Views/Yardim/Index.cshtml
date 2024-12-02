@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#modal1').modal('show');
+    });</script>
+
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><strong>Bilgilendirme Ekranı</strong></h2>
+            </div>
+            <br />
+            <div class="modal-body text-center">
+                <p rows="5" cols="80">Bu proje 02.12.2024 tarihinde Melisa Akkuş tarafından tasarlanmıştır.</p>
+            </div>
+            <div>
+                <img src="~/images/image.jpeg" style="width: 100%; height: auto;"  alt="Tasarlayan" 
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="modalTitle">
+                    <i class="fas fa-info-circle"></i> Bilgilendirme Ekranı
+                </h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body text-center">
+                <p class="mb-3">
+                    <strong>Bu sayfa</strong> <em>02.12.2024</em> tarihinde
+                    <span class="text-primary">Melisa Akkuş</span> tarafından tasarlanmıştır.
+                </p>
+                <img src="https://via.placeholder.com/300" alt="Tasarlayan" class="img-fluid rounded mb-3">
+                <button type="button" class="btn btn-success">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>*@

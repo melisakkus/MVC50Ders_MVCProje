@@ -12,7 +12,7 @@
 
         @Html.LabelFor(m => m.UrunId)
         @*<label>Urun ID</label>*@
-        @Html.TextBoxFor(m => m.UrunId, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.UrunId, new { @class = "form-control" , @readonly = "readonly" })
 
         @Html.LabelFor(m => m.UrunAd)
         @Html.TextBoxFor(m => m.UrunAd, new { @class = "form-control" })

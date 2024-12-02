@@ -12,10 +12,17 @@ namespace MVC50Ders_Stok.Controllers
     {
 
         DbMVC50_7_StokEntities db = new DbMVC50_7_StokEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var degerler = db.Tbl_Musteriler.ToList();
-            return View(degerler);
+            var degerler = from d in db.Tbl_Musteriler
+                           select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                degerler = degerler.Where(m => m.MusteriAd.Contains(p));
+            }
+            return View(degerler.ToList());
+            //var degerler = db.Tbl_Musteriler.ToList();
+            //return View(degerler);
         }
 
         [HttpGet]
@@ -31,9 +38,9 @@ namespace MVC50Ders_Stok.Controllers
             {
                 return View("YeniMusteri");
             }
-            db.Tbl_Musteriler.Add(tblMusteri);  
-            db.SaveChanges();   
-            return RedirectToAction("Index");  
+            db.Tbl_Musteriler.Add(tblMusteri);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult MusteriSil(int id)
@@ -41,7 +48,7 @@ namespace MVC50Ders_Stok.Controllers
             var musteri = db.Tbl_Musteriler.Find(id);
             db.Tbl_Musteriler.Remove(musteri);
             db.SaveChanges();
-            return RedirectToAction("Index");   
+            return RedirectToAction("Index");
         }
 
         public ActionResult MusteriGetir(int id)
